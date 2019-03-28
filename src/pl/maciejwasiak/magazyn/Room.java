@@ -115,18 +115,17 @@ public class Room {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Room{");
-        sb.append("roomId=").append(roomId);
-        sb.append(", timeOfRent=").append(timeOfRent);
-        sb.append(", xDimension=").append(xDimension);
-        sb.append(", yDimension=").append(yDimension);
-        sb.append(", zDimension=").append(zDimension);
-        sb.append(", volume=").append(volume);
-        sb.append(", causeOfExclusion='").append(causeOfExclusion).append('\'');
-        sb.append(", dateOfRent='").append(dateOfRent).append('\'');
-        sb.append(", isInUse=").append(isInUse);
-        sb.append(", rentier=").append(rentier);
-        sb.append('}');
-        return sb.toString();
+        return "Room{" +
+                "roomId=" + roomId +
+                ", timeOfRent=" + timeOfRent +
+                ", xDimension=" + xDimension +
+                ", yDimension=" + yDimension +
+                ", zDimension=" + zDimension +
+                ", volume=" + volume +
+                ", causeOfExclusion='" + causeOfExclusion + '\'' +
+                ", dateOfRent='" + dateOfRent + '\'' +
+                ", isInUse=" + isInUse +
+                ", rentier=" + rentier +
+                '}';
     }
 }

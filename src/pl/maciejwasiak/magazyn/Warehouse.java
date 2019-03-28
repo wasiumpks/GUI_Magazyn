@@ -33,10 +33,9 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Warehouse{");
-        sb.append("surface=").append(surface);
-        sb.append(", numberOfRooms=").append(numberOfRooms);
-        sb.append('}');
-        return sb.toString();
+        return "Warehouse{" +
+                "surface=" + surface +
+                ", numberOfRooms=" + numberOfRooms +
+                '}';
     }
 }

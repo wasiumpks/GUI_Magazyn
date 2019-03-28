@@ -63,13 +63,12 @@ public class Person {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Person{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", surname='").append(surname).append('\'');
-        sb.append(", address='").append(address).append('\'');
-        sb.append(", dateOfBirth='").append(dateOfBirth).append('\'');
-        sb.append(", dateOfFirstRent='").append(dateOfFirstRent).append('\'');
-        sb.append('}');
-        return sb.toString();
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", dateOfFirstRent='" + dateOfFirstRent + '\'' +
+                '}';
     }
 }
