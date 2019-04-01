@@ -6,6 +6,7 @@
 
 package pl.maciejwasiak.magazyn;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,9 +24,15 @@ public class Main {
         listOfRooms.add(new Room(500, 500, 200));
         listOfRooms.add(new Room(500, 500, 200));
         for (Room r : listOfRooms) {
-            r.setRentier(p);
+            r.rent(p, 30, ZonedDateTime.now());
             System.out.println(r);
         }
+
+        for (Room r : listOfRooms) {
+            r.leave();
+            System.out.println(r);
+        }
+
 
 
     }

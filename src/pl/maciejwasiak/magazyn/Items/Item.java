@@ -1,20 +1,16 @@
+/*
+ * Copyright (c) 2019.
+ * Created by Maciej Wasiak
+ * s18952@pjwstk.edu.pl
+ */
 package pl.maciejwasiak.magazyn.Items;
 
 import pl.maciejwasiak.magazyn.RoomInterface;
 
-public abstract class Item implements RoomInterface, Comparable {
+public abstract class Item implements Comparable {
     float volumeOfItem;
     boolean isFoldable;
 
-    @Override
-    public void put() {
-
-    }
-
-    @Override
-    public void remove() {
-
-    }
 
     @Override
     public int compareTo(Object o) {

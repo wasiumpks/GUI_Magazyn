@@ -6,15 +6,20 @@
 
 package pl.maciejwasiak.magazyn;
 
+import java.time.ZonedDateTime;
+
 public class Person {
 
-    private String name, surname, address, dateOfBirth, dateOfFirstRent;
+    private int howManyRents;
+    private String name, surname, address, dateOfBirth;
+    private ZonedDateTime dateOfFirstRent;
 
     public Person(String name, String surname, String adress, String dateOfBirth) {
         this.name = name;
         this.surname = surname;
         this.address = adress;
         this.dateOfBirth = dateOfBirth;
+        this.howManyRents = 0;
     }
 
     public String getName() {
@@ -49,26 +54,35 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getDateOfFirstRent() throws NeverRentException {
+    public int getHowManyRents() {
+        return howManyRents;
+    }
+
+    public void setHowManyRents(int howManyRents) {
+        this.howManyRents = howManyRents;
+    }
+
+    public ZonedDateTime getDateOfFirstRent() throws NeverRentException {
         //This if checks if user have date of first rent of room and if not throws NeverRentException
-        if (dateOfFirstRent != null && !dateOfFirstRent.isEmpty()) {
+        if (dateOfFirstRent != null) {
             return dateOfFirstRent;
         } else
             throw new NeverRentException("Uzytkownik nigy nie wypozyczyl pomieszenia!");
     }
 
-    public void setDateOfFirstRent(String dateOfFirstRent) {
+    public void setDateOfFirstRent(ZonedDateTime dateOfFirstRent) {
         this.dateOfFirstRent = dateOfFirstRent;
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
+                "howManyRents=" + howManyRents +
+                ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", address='" + address + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", dateOfFirstRent='" + dateOfFirstRent + '\'' +
+                ", dateOfFirstRent=" + dateOfFirstRent +
                 '}';
     }
 }

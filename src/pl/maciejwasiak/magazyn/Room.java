@@ -6,23 +6,35 @@
 
 package pl.maciejwasiak.magazyn;
 
-public class Room {
+import java.time.ZonedDateTime;
+
+public class Room implements RentInterface {
     private static int id = 0;
-    private int roomId, timeOfRent;
-    private float xDimension, yDimension, zDimension, volume;
-    private String causeOfExclusion, dateOfRent;
-    private boolean isInUse;
-    private Person rentier;
+    private int roomId, howManyDays;
+    private float xDimension, yDimension, zDimension, volume, freeSpace;
+    private String causeOfExclusion;
+    private boolean isInUse, isForRent;
+    private Person renter;
+    private ZonedDateTime rentDate, leaveDate;
 
     public Room(float xDimension, float yDimension, float zDimension) {
         this.roomId = id++;
         this.xDimension = xDimension;
         this.yDimension = yDimension;
         this.zDimension = zDimension;
-        this.rentier = null;
+        this.renter = null;
+        this.isForRent = true;
 
         //calculating volume of room based on room dimensions
         this.volume = (xDimension * yDimension * zDimension) / 100;
+    }
+
+    public Room(float volume) {
+        this.roomId = id++;
+        this.renter = null;
+        this.volume = volume;
+        this.isForRent = true;
+
     }
 
     public static int getId() {
@@ -39,14 +51,6 @@ public class Room {
 
     public void setRoomId(int roomId) {
         this.roomId = roomId;
-    }
-
-    public int getTimeOfRent() {
-        return timeOfRent;
-    }
-
-    public void setTimeOfRent(int timeOfRent) {
-        this.timeOfRent = timeOfRent;
     }
 
     public float getxDimension() {
@@ -89,13 +93,6 @@ public class Room {
         this.causeOfExclusion = causeOfExclusion;
     }
 
-    public String getDateOfRent() {
-        return dateOfRent;
-    }
-
-    public void setDateOfRent(String dateOfRent) {
-        this.dateOfRent = dateOfRent;
-    }
 
     public boolean isInUse() {
         return isInUse;
@@ -105,27 +102,93 @@ public class Room {
         isInUse = inUse;
     }
 
-    public Person getRentier() {
-        return rentier;
+    public Person getRenter() {
+        return renter;
     }
 
-    public void setRentier(Person rentier) {
-        this.rentier = rentier;
+    public void setRenter(Person renter) {
+        this.renter = renter;
+    }
+
+    public int getHowManyDays() {
+        return howManyDays;
+    }
+
+    public void setHowManyDays(int howManyDays) {
+        this.howManyDays = howManyDays;
+    }
+
+    public ZonedDateTime getRentDate() {
+        return rentDate;
+    }
+
+    public void setRentDate(ZonedDateTime rentDate) {
+        this.rentDate = rentDate;
+    }
+
+    public ZonedDateTime getLeaveDate() {
+        return leaveDate;
+    }
+
+    public void setLeaveDate(ZonedDateTime leaveDate) {
+        this.leaveDate = leaveDate;
+    }
+
+    public float getFreeSpace() {
+        return freeSpace;
+    }
+
+    public void setFreeSpace(float freeSpace) {
+        this.freeSpace = freeSpace;
+    }
+
+    public boolean isForRent() {
+        return isForRent;
+    }
+
+    public void setForRent(boolean forRent) {
+        isForRent = forRent;
     }
 
     @Override
     public String toString() {
         return "Room{" +
                 "roomId=" + roomId +
-                ", timeOfRent=" + timeOfRent +
+                ", howManyDays=" + howManyDays +
                 ", xDimension=" + xDimension +
                 ", yDimension=" + yDimension +
                 ", zDimension=" + zDimension +
                 ", volume=" + volume +
+                ", freeSpace=" + freeSpace +
                 ", causeOfExclusion='" + causeOfExclusion + '\'' +
-                ", dateOfRent='" + dateOfRent + '\'' +
                 ", isInUse=" + isInUse +
-                ", rentier=" + rentier +
+                ", isForRent=" + isForRent +
+                ", renter=" + renter +
+                ", rentDate=" + rentDate +
+                ", leaveDate=" + leaveDate +
                 '}';
+    }
+
+    @Override
+    public void rent(Person person, int howManyDays, ZonedDateTime dateOfRent) {
+        this.renter = person;
+        this.howManyDays = howManyDays;
+        this.rentDate = dateOfRent;
+        this.isInUse = true;
+        if (person.getHowManyRents() == 0) {
+            person.setDateOfFirstRent(dateOfRent);
+        }
+        person.setHowManyRents(person.getHowManyRents() + 1);
+
+    }
+
+    @Override
+    public void leave() {
+        this.leaveDate = ZonedDateTime.now();
+        this.rentDate = null;
+        this.howManyDays = 0;
+        this.isInUse = false;
+        this.renter = null;
+
     }
 }
