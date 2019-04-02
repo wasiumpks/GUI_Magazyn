@@ -173,16 +173,19 @@ public class Room implements RentInterface {
 
     @Override
     public void rent(Person person, int howManyDays, ZonedDateTime dateOfRent) {
-        this.renter = person;
-        this.howManyDays = howManyDays;
-        this.rentDate = dateOfRent;
-        this.isInUse = true;
-        this.isForRent = false;
-        if (person.getHowManyRents() == 0) {
-            person.setDateOfFirstRent(dateOfRent);
+        if (isForRent) {
+            this.renter = person;
+            this.howManyDays = howManyDays;
+            this.rentDate = dateOfRent;
+            this.isInUse = true;
+            this.isForRent = false;
+            if (person.getHowManyRents() == 0) {
+                person.setDateOfFirstRent(dateOfRent);
+            }
+            person.setHowManyRents(person.getHowManyRents() + 1);
+        } else {
+            System.out.println("Pomieszczenie nie jest na wynajem!" + getCauseOfExclusion());
         }
-        person.setHowManyRents(person.getHowManyRents() + 1);
-
     }
 
     @Override

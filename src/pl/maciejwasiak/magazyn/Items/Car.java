@@ -54,4 +54,19 @@ public class Car extends Item {
     public void setApproval(boolean approval) {
         this.approval = approval;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "engineCapacity=" + engineCapacity +
+                ", fuelType='" + fuelType + '\'' +
+                ", approval=" + approval +
+                ", volumeOfItem=" + volumeOfItem +
+                ", xDimension=" + xDimension +
+                ", yDimension=" + yDimension +
+                ", zDimension=" + zDimension +
+                ", isFoldable=" + isFoldable +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

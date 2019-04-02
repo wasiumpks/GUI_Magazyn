@@ -11,15 +11,16 @@ import java.time.ZonedDateTime;
 public class Person {
 
     private int howManyRents;
-    private String name, surname, address, dateOfBirth;
+    private String name, surname, address, dateOfBirth, pesel;
     private ZonedDateTime dateOfFirstRent;
 
-    public Person(String name, String surname, String adress, String dateOfBirth) {
+    public Person(String name, String surname, String adress, String dateOfBirth, String pesel) {
         this.name = name;
         this.surname = surname;
         this.address = adress;
         this.dateOfBirth = dateOfBirth;
         this.howManyRents = 0;
+        this.pesel = pesel;
     }
 
     public String getName() {
@@ -54,6 +55,14 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public String getPesel() {
+        return pesel;
+    }
+
+    public void setPesel(String pesel) {
+        this.pesel = pesel;
+    }
+
     public int getHowManyRents() {
         return howManyRents;
     }
@@ -82,6 +91,7 @@ public class Person {
                 ", surname='" + surname + '\'' +
                 ", address='" + address + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", pesel='" + pesel + '\'' +
                 ", dateOfFirstRent=" + dateOfFirstRent +
                 '}';
     }

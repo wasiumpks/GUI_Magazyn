@@ -5,9 +5,11 @@
  */
 package pl.maciejwasiak.magazyn.Items;
 
+import pl.maciejwasiak.magazyn.RoomInterface;
+
 import java.util.Comparator;
 
-public abstract class Item implements Comparator<Item>, Comparable<Item> {
+public abstract class Item implements Comparable<Item>, RoomInterface {
     float volumeOfItem, xDimension, yDimension, zDimension;
     boolean isFoldable;
     String name;
@@ -28,7 +30,9 @@ public abstract class Item implements Comparator<Item>, Comparable<Item> {
         isFoldable = foldable;
     }
 
-    public float getxDimension() { return xDimension; }
+    public float getxDimension() {
+        return xDimension;
+    }
 
     public void setxDimension(float xDimension) {
         this.xDimension = xDimension;
@@ -58,21 +62,35 @@ public abstract class Item implements Comparator<Item>, Comparable<Item> {
         this.name = name;
     }
 
-    //zrobic dwa po nazwie i po volume
-    @Override
-    public int compare(Item o1, Item o2) {
-        return (o1.getName().compareTo(o2.getName()));
+    public void fold() {
+        //objetosc sie nie zmienia, dlugosc sie skraca o polowe a szerokosc sie zwieksza.
+        this.xDimension = this.xDimension / 2;
+        this.yDimension = this.yDimension * 2;
     }
 
+    //zrobic dwa po nazwie i po volume
     @Override
     public int compareTo(Item o) {
-        if (getName().toLowerCase().compareTo(o.getName().toLowerCase()) == 0) {
+
+        if (this.getName().toLowerCase().compareTo(o.getName().toLowerCase()) == 0) {
             return 0;
-        } else if (getName().toLowerCase().compareTo(o.getName().toLowerCase()) > 0) {
+        } else if (this.getName().toLowerCase().compareTo(o.getName().toLowerCase()) > 0) {
             return 1;
-        } else if (getName().toLowerCase().compareTo(o.getName().toLowerCase()) < 0) {
+        } else if (this.getName().toLowerCase().compareTo(o.getName().toLowerCase()) < 0) {
             return -1;
         }
         return 0;
+    }
+
+    public static Comparator<Item> CompareByName = (o1, o2) -> ((o1.getName().toLowerCase()).compareTo(o2.getName()));
+
+    @Override
+    public void remove() {
+
+    }
+
+    @Override
+    public void put() {
+
     }
 }
