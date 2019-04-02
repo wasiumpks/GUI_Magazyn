@@ -1,16 +1,11 @@
-/*
- * Copyright (c) 2019.
- * Created by Maciej Wasiak
- * s18952@pjwstk.edu.pl
- */
 package pl.maciejwasiak.magazyn.Items;
 
-public class Car extends Item {
+public class Motorcycle extends Item {
     private int engineCapacity;
     private String fuelType;
     private boolean approval;
 
-    public Car(String name, int engineCapacity, String fuelType, int volumeOfItem, boolean approval, boolean isFoldable) {
+    public Motorcycle(String name, int engineCapacity, String fuelType, int volumeOfItem, boolean approval, boolean isFoldable) {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.approval = approval;
@@ -19,7 +14,7 @@ public class Car extends Item {
         this.name = name;
     }
 
-    public Car(String name, int engineCapacity, String fuelType, boolean approval, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
+    public Motorcycle(String name, int engineCapacity, String fuelType, boolean approval, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.approval = approval;
@@ -53,5 +48,20 @@ public class Car extends Item {
 
     public void setApproval(boolean approval) {
         this.approval = approval;
+    }
+
+    @Override
+    public String toString() {
+        return "Motorcycle{" +
+                "engineCapacity=" + engineCapacity +
+                ", fuelType='" + fuelType + '\'' +
+                ", approval=" + approval +
+                ", volumeOfItem=" + volumeOfItem +
+                ", xDimension=" + xDimension +
+                ", yDimension=" + yDimension +
+                ", zDimension=" + zDimension +
+                ", isFoldable=" + isFoldable +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

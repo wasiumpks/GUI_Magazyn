@@ -10,23 +10,49 @@ public class Bicycle extends Item {
     private String brakesType;
     private boolean isSuspended;
 
-    public Bicycle(int howManyGears, String brakesType, int volumeOfItem, boolean isFoldable) {
+    public Bicycle(String name, int howManyGears, String brakesType, int volumeOfItem, boolean isFoldable) {
         this.howManyGears = howManyGears;
         this.brakesType = brakesType;
         this.isSuspended = false;
         this.volumeOfItem = volumeOfItem;
         this.isFoldable = isFoldable;
-
+        this.name = name;
     }
 
-    public Bicycle(int howManyGears, String brakesType, int howManyShockAbsorbers, int volumeOfItem, boolean isFoldable) {
+    public Bicycle(String name, int howManyGears, String brakesType, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
+        this.howManyGears = howManyGears;
+        this.brakesType = brakesType;
+        this.isSuspended = false;
+        this.volumeOfItem = (xDimension * yDimension * zDimension);
+        this.isFoldable = isFoldable;
+        this.xDimension = xDimension;
+        this.zDimension = zDimension;
+        this.yDimension = yDimension;
+        this.name = name;
+    }
+
+    public Bicycle(String name, int howManyGears, String brakesType, int howManyShockAbsorbers, int volumeOfItem, boolean isFoldable) {
         this.howManyGears = howManyGears;
         this.brakesType = brakesType;
         this.isSuspended = true;
         this.volumeOfItem = volumeOfItem;
         this.howManyShockAbsorbers = howManyShockAbsorbers;
         this.isFoldable = isFoldable;
+        this.name = name;
 
+    }
+
+    public Bicycle(String name, int howManyGears, String brakesType, int howManyShockAbsorbers, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
+        this.howManyGears = howManyGears;
+        this.brakesType = brakesType;
+        this.isSuspended = true;
+        this.volumeOfItem = (xDimension * yDimension * zDimension);
+        this.howManyShockAbsorbers = howManyShockAbsorbers;
+        this.isFoldable = isFoldable;
+        this.xDimension = xDimension;
+        this.zDimension = zDimension;
+        this.yDimension = yDimension;
+        this.name = name;
     }
 
     public int getHowManyGears() {
@@ -61,5 +87,3 @@ public class Bicycle extends Item {
         isSuspended = suspended;
     }
 }
-
-

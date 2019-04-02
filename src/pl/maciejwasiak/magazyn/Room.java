@@ -7,6 +7,7 @@
 package pl.maciejwasiak.magazyn;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 public class Room implements RentInterface {
     private static int id = 0;
@@ -16,6 +17,7 @@ public class Room implements RentInterface {
     private boolean isInUse, isForRent;
     private Person renter;
     private ZonedDateTime rentDate, leaveDate;
+    private List list;
 
     public Room(float xDimension, float yDimension, float zDimension) {
         this.roomId = id++;
@@ -175,6 +177,7 @@ public class Room implements RentInterface {
         this.howManyDays = howManyDays;
         this.rentDate = dateOfRent;
         this.isInUse = true;
+        this.isForRent = false;
         if (person.getHowManyRents() == 0) {
             person.setDateOfFirstRent(dateOfRent);
         }
@@ -188,6 +191,7 @@ public class Room implements RentInterface {
         this.rentDate = null;
         this.howManyDays = 0;
         this.isInUse = false;
+        this.isForRent = true;
         this.renter = null;
 
     }
