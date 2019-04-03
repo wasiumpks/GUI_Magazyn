@@ -5,11 +5,9 @@
  */
 package pl.maciejwasiak.magazyn.Items;
 
-import pl.maciejwasiak.magazyn.RoomInterface;
-
 import java.util.Comparator;
 
-public abstract class Item implements Comparable<Item>, RoomInterface {
+public abstract class Item implements Comparable<Item> {
     float volumeOfItem, xDimension, yDimension, zDimension;
     boolean isFoldable;
     String name;
@@ -68,29 +66,19 @@ public abstract class Item implements Comparable<Item>, RoomInterface {
         this.yDimension = this.yDimension * 2;
     }
 
-    //zrobic dwa po nazwie i po volume
+    public static Comparator<Item> sortujPoPowierzchni = (o1, o2) -> (int) (o1.volumeOfItem - o2.volumeOfItem);
+    public static Comparator<Item> sortujPoNazwie = Comparator.comparing(o -> o.name);
+
     @Override
     public int compareTo(Item o) {
-
-        if (this.getName().toLowerCase().compareTo(o.getName().toLowerCase()) == 0) {
-            return 0;
-        } else if (this.getName().toLowerCase().compareTo(o.getName().toLowerCase()) > 0) {
-            return 1;
-        } else if (this.getName().toLowerCase().compareTo(o.getName().toLowerCase()) < 0) {
-            return -1;
+        if (this.volumeOfItem - o.volumeOfItem == 0) {
+            if (this.name.toLowerCase().compareTo(o.name.toLowerCase()) == 0) {
+                return 0;
+            } else {
+                return this.name.toLowerCase().compareTo(o.name);
+            }
+        } else {
+            return (int) (this.volumeOfItem - o.volumeOfItem);
         }
-        return 0;
-    }
-
-    public static Comparator<Item> CompareByName = (o1, o2) -> ((o1.getName().toLowerCase()).compareTo(o2.getName()));
-
-    @Override
-    public void remove() {
-
-    }
-
-    @Override
-    public void put() {
-
     }
 }

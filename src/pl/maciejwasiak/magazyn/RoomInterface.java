@@ -5,7 +5,17 @@
  */
 package pl.maciejwasiak.magazyn;
 
+import pl.maciejwasiak.magazyn.Items.Item;
+
+import java.time.ZonedDateTime;
+
 public interface RoomInterface {
-    void put();
+    void insert(Item item);
+
+    void remove(Item item);
     void remove();
+
+    void rent(Person person, int howManyDays, ZonedDateTime dateOfRent);
+
+    void leave();
 }

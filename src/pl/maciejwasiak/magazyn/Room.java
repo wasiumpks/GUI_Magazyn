@@ -6,18 +6,21 @@
 
 package pl.maciejwasiak.magazyn;
 
+import pl.maciejwasiak.magazyn.Items.Item;
+
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Room implements RentInterface {
+public class Room implements RoomInterface {
     private static int id = 0;
     private int roomId, howManyDays;
-    private float xDimension, yDimension, zDimension, volume, freeSpace;
+    private float xDimension, yDimension, zDimension, volume, freeVolume;
     private String causeOfExclusion;
     private boolean isInUse, isForRent;
     private Person renter;
     private ZonedDateTime rentDate, leaveDate;
-    private List list;
+    private List<Item> list;
 
     public Room(float xDimension, float yDimension, float zDimension) {
         this.roomId = id++;
@@ -26,9 +29,10 @@ public class Room implements RentInterface {
         this.zDimension = zDimension;
         this.renter = null;
         this.isForRent = true;
-
         //calculating volume of room based on room dimensions
         this.volume = (xDimension * yDimension * zDimension) / 100;
+        this.freeVolume = volume;
+        this.list = new ArrayList<>();
     }
 
     public Room(float volume) {
@@ -136,12 +140,12 @@ public class Room implements RentInterface {
         this.leaveDate = leaveDate;
     }
 
-    public float getFreeSpace() {
-        return freeSpace;
+    public float getFreeVolume() {
+        return freeVolume;
     }
 
-    public void setFreeSpace(float freeSpace) {
-        this.freeSpace = freeSpace;
+    public void setFreeVolume(float freeVolume) {
+        this.freeVolume = freeVolume;
     }
 
     public boolean isForRent() {
@@ -152,23 +156,40 @@ public class Room implements RentInterface {
         isForRent = forRent;
     }
 
+    public List<Item> getList() {
+        return list;
+    }
+
+    public void setList(List<Item> list) {
+        this.list = list;
+    }
+
     @Override
-    public String toString() {
-        return "Room{" +
-                "roomId=" + roomId +
-                ", howManyDays=" + howManyDays +
-                ", xDimension=" + xDimension +
-                ", yDimension=" + yDimension +
-                ", zDimension=" + zDimension +
-                ", volume=" + volume +
-                ", freeSpace=" + freeSpace +
-                ", causeOfExclusion='" + causeOfExclusion + '\'' +
-                ", isInUse=" + isInUse +
-                ", isForRent=" + isForRent +
-                ", renter=" + renter +
-                ", rentDate=" + rentDate +
-                ", leaveDate=" + leaveDate +
-                '}';
+    public void insert(Item item) {
+        if (freeVolume >= item.getVolumeOfItem()) {
+            list.add(item);
+            this.freeVolume = this.freeVolume - item.getVolumeOfItem();
+        } else {
+            try {
+                throw new TooManyItemsException("Nie ma miejsca!");
+            } catch (TooManyItemsException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override
+    public void remove(Item item) {
+        list.remove(item);
+        this.freeVolume = this.freeVolume + item.getVolumeOfItem();
+
+    }
+
+    @Override
+    public void remove() {
+        list.clear();
+        this.freeVolume = this.volume;
+
     }
 
     @Override
@@ -197,5 +218,25 @@ public class Room implements RentInterface {
         this.isForRent = true;
         this.renter = null;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomId=" + roomId +
+                ", howManyDays=" + howManyDays +
+                ", xDimension=" + xDimension +
+                ", yDimension=" + yDimension +
+                ", zDimension=" + zDimension +
+                ", volume=" + volume +
+                ", freeVolume=" + freeVolume +
+                ", causeOfExclusion='" + causeOfExclusion + '\'' +
+                ", isInUse=" + isInUse +
+                ", isForRent=" + isForRent +
+                ", renter=" + renter +
+                ", rentDate=" + rentDate +
+                ", leaveDate=" + leaveDate +
+                ", list=" + list +
+                '}';
     }
 }

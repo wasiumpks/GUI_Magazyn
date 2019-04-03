@@ -10,7 +10,9 @@ import pl.maciejwasiak.magazyn.Items.Car;
 import pl.maciejwasiak.magazyn.Items.Motorcycle;
 
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -44,7 +46,29 @@ public class Main {
         Car[] tabOfCars = new Car[2];
         Car bmw = new Car("e39", 3000, "petrol", 50000, true, false);
         Car bmw1 = new Car("e36", 3000, "petrol", 50000, true, false);
+        tabOfCars[0] = bmw;
+        tabOfCars[1] = bmw1;
 
+        Arrays.sort(tabOfCars);
+
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+        listOfRooms.get(0).insert(bmw);
+
+        System.out.println(listOfRooms.get(0));
+        System.out.println(listOfRooms.get(0).getFreeVolume());
+
+        listOfRooms.get(0).remove();
+
+        System.out.println(listOfRooms.get(0).getFreeVolume());
 
 
     }
