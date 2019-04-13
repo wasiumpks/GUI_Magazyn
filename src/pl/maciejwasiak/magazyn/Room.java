@@ -11,6 +11,7 @@ import pl.maciejwasiak.magazyn.Items.Item;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Room implements RoomInterface {
     private static int id = 0;
@@ -21,6 +22,7 @@ public class Room implements RoomInterface {
     private Person renter;
     private ZonedDateTime rentDate, leaveDate;
     private List<Item> list;
+    private Map<Person, Room> mapOfRoomsAndPersons;
 
     public Room(float xDimension, float yDimension, float zDimension) {
         this.roomId = id++;
@@ -178,6 +180,36 @@ public class Room implements RoomInterface {
         }
     }
 
+    public void move(Person p, List<Item> list) {
+        float freeVolumeOfRoom = 0;
+        float volumeOfItems = 0;
+
+        for (Item item : list) {
+            volumeOfItems += item.getVolumeOfItem();
+        }
+
+        for (int i = 0; i < p.getRooms().size(); i++) {
+            Room pokoj = p.getRooms().get(i);
+            freeVolumeOfRoom += pokoj.getFreeVolume();
+            if (freeVolumeOfRoom >= volumeOfItems) {
+                System.out.println("Przenosze przedmioty!");
+                for (Item item : list) {
+                    pokoj.insert(item);
+                }
+                System.out.println("Przedmioty przeniesione!");
+                break;
+            } else {
+                if (i == p.getRooms().size() - 1) {
+                    System.out.println("Nie przeniesiono przedmiotow, brak miejsca!");
+                    list.clear();
+                    System.out.println("Przedmioty zostały usnięte!");
+
+                } else
+                    System.out.println("W tym pokoju nie ma wystarczajaco miejsca!\n Sprawdzam kolejny");
+            }
+        }
+    }
+
     @Override
     public void remove(Item item) {
         list.remove(item);
@@ -195,6 +227,7 @@ public class Room implements RoomInterface {
     @Override
     public void rent(Person person, int howManyDays, ZonedDateTime dateOfRent) {
         if (isForRent) {
+            person.getRooms().add(this);
             this.renter = person;
             this.howManyDays = howManyDays;
             this.rentDate = dateOfRent;
@@ -222,21 +255,20 @@ public class Room implements RoomInterface {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "roomId=" + roomId +
-                ", howManyDays=" + howManyDays +
-                ", xDimension=" + xDimension +
-                ", yDimension=" + yDimension +
-                ", zDimension=" + zDimension +
-                ", volume=" + volume +
-                ", freeVolume=" + freeVolume +
-                ", causeOfExclusion='" + causeOfExclusion + '\'' +
-                ", isInUse=" + isInUse +
-                ", isForRent=" + isForRent +
-                ", renter=" + renter +
-                ", rentDate=" + rentDate +
-                ", leaveDate=" + leaveDate +
-                ", list=" + list +
-                '}';
+        return "Pokoj: \n" +
+                " Id: " + roomId +
+                ",\n Wynajety na: " + howManyDays + " dni" +
+                ",\n Wymiar x: " + xDimension +
+                ",\n Wymiar y: " + yDimension +
+                ",\n Wymiar z: " + zDimension +
+                ",\n Objetosc: " + volume +
+                ",\n Wolna objetosc: " + freeVolume +
+                ",\n Powod wylaczenia pokoju " + causeOfExclusion +
+                ",\n Czy jest w użyciu: " + isInUse +
+                ",\n Czy jest na wynajem: " + isForRent +
+                ",\n Najemca: " + renter +
+                ",\n Data wynajmu: " + rentDate +
+                ",\n Data opuszczenia: " + leaveDate +
+                ",\n Lista przedmiotow w pomieszczeniu: " + list;
     }
 }

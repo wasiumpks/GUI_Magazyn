@@ -1,0 +1,35 @@
+Magazyn: 
+ Pojemnosc: 456.56, Ilosc pomieszczen: 5
+
+Pokoj: 
+ Id: 0,
+ Wynajety na: 0 dni,
+ Wymiar x: 500.0,
+ Wymiar y: 500.0,
+ Wymiar z: 200.0,
+ Objetosc: 500000.0,
+ Wolna objetosc: 300000.0,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: 2019-04-13T14:48:11.480+02:00[Europe/Belgrade],
+ Lista przedmiotow w pomieszczeniu: [Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}, Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}, Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}, Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}]
+
+Pokoj: 
+ Id: 1,
+ Wynajety na: 0 dni,
+ Wymiar x: 500.0,
+ Wymiar y: 500.0,
+ Wymiar z: 200.0,
+ Objetosc: 500000.0,
+ Wolna objetosc: 500000.0,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: 2019-04-13T14:48:11.480+02:00[Europe/Belgrade],
+ Lista przedmiotow w pomieszczeniu: []
+

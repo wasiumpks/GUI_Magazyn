@@ -9,6 +9,7 @@ package pl.maciejwasiak.magazyn;
 import pl.maciejwasiak.magazyn.Items.Car;
 import pl.maciejwasiak.magazyn.Items.Motorcycle;
 
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,10 +19,10 @@ public class Main {
 
     public static void main(String[] args) {
         Person p = new Person("Jan", "Kowalski", "Zlota 9, 01-61, Warszawa", "11-06-1998", "9800000000");
-        System.out.println(p);
+        //System.out.println(p);
 
         Warehouse w = new Warehouse(456.56f, 5);
-        System.out.println(w);
+        //System.out.println(w);
 
         List<Room> listOfRooms = new ArrayList<>();
 
@@ -29,12 +30,12 @@ public class Main {
         listOfRooms.add(new Room(500, 500, 200));
         for (Room r : listOfRooms) {
             r.rent(p, 30, ZonedDateTime.now());
-            System.out.println(r);
+//            System.out.println(r);
         }
 
         for (Room r : listOfRooms) {
             r.leave();
-            System.out.println(r);
+            //System.out.println(r);
         }
 
         Motorcycle[] tab = new Motorcycle[2];
@@ -55,20 +56,26 @@ public class Main {
         listOfRooms.get(0).insert(bmw);
         listOfRooms.get(0).insert(bmw);
         listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//        listOfRooms.get(0).insert(bmw);
+//
+//        System.out.println(listOfRooms.get(0));
+//        System.out.println(listOfRooms.get(0).getFreeVolume());
 
-        System.out.println(listOfRooms.get(0));
-        System.out.println(listOfRooms.get(0).getFreeVolume());
+        //listOfRooms.get(0).remove();
 
-        listOfRooms.get(0).remove();
+        //System.out.println(listOfRooms.get(0).getFreeVolume());
 
-        System.out.println(listOfRooms.get(0).getFreeVolume());
+        try {
+            PrintToTxt.print(w, listOfRooms);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }

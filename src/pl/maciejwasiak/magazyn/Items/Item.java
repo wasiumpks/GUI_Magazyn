@@ -81,4 +81,15 @@ public abstract class Item implements Comparable<Item> {
             return (int) (this.volumeOfItem - o.volumeOfItem);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Przedmiot: " +
+                " Nazwa" + name +
+                " objetosc: " + volumeOfItem +
+                ", wymiar x: " + xDimension +
+                ", wymiar y: " + yDimension +
+                ", wymiar z: " + zDimension +
+                ", czy jest skladany: " + isFoldable;
+    }
 }

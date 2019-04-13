@@ -7,12 +7,15 @@
 package pl.maciejwasiak.magazyn;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Person {
 
     private int howManyRents;
     private String name, surname, address, dateOfBirth, pesel;
     private ZonedDateTime dateOfFirstRent;
+    private List<Room> rooms;
 
     public Person(String name, String surname, String adress, String dateOfBirth, String pesel) {
         this.name = name;
@@ -21,6 +24,7 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
         this.howManyRents = 0;
         this.pesel = pesel;
+        this.rooms = new ArrayList<>();
     }
 
     public String getName() {
@@ -71,6 +75,14 @@ public class Person {
         this.howManyRents = howManyRents;
     }
 
+    public List<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     public ZonedDateTime getDateOfFirstRent() throws NeverRentException {
         //This if checks if user have date of first rent of room and if not throws NeverRentException
         if (dateOfFirstRent != null) {
@@ -83,16 +95,19 @@ public class Person {
         this.dateOfFirstRent = dateOfFirstRent;
     }
 
+    public float[] freeVolumeInEachRoom() {
+        float[] freeVolume = new float[rooms.size()];
+
+        for (int i = 0; i < rooms.size(); i++) {
+            freeVolume[i] = rooms.get(i).getFreeVolume();
+        }
+
+        return freeVolume;
+    }
+
     @Override
     public String toString() {
-        return "Person{" +
-                "howManyRents=" + howManyRents +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", address='" + address + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", pesel='" + pesel + '\'' +
-                ", dateOfFirstRent=" + dateOfFirstRent +
-                '}';
+        return "Osoba: \n" + " Imie: " + name + "\n Nazwisko: " + surname + "\n Adres: " + address + "\n Data urodzenia: " + dateOfBirth + "\n Pesel: " + pesel + "\n Data pierwszego wynajmu: " + dateOfFirstRent + "\n Ilosc wynajmow: " + howManyRents;
+
     }
 }

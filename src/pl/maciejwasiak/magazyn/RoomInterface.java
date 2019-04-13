@@ -13,9 +13,10 @@ public interface RoomInterface {
     void insert(Item item);
 
     void remove(Item item);
-    void remove();
 
     void rent(Person person, int howManyDays, ZonedDateTime dateOfRent);
 
     void leave();
+
+    void remove();
 }

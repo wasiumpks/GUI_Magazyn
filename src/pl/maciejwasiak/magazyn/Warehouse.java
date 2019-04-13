@@ -33,9 +33,6 @@ public class Warehouse {
 
     @Override
     public String toString() {
-        return "Warehouse{" +
-                "surface=" + surface +
-                ", numberOfRooms=" + numberOfRooms +
-                '}';
+        return "Magazyn: \n Pojemnosc: " + surface + ", Ilosc pomieszczen: " + numberOfRooms + "\n";
     }
 }
