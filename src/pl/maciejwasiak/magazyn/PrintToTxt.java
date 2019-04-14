@@ -3,7 +3,6 @@
  * Created by Maciej Wasiak
  * s18952@pjwstk.edu.pl
  */
-
 package pl.maciejwasiak.magazyn;
 
 import java.io.FileWriter;
@@ -22,5 +21,7 @@ public class PrintToTxt {
             fw.write(r.toString() + "\n\n");
         }
         fw.flush();
+        System.out.println((char) 27 + "[33mZAPISANO DO PLIKU!" + (char) 27 + "[0m");
+
     }
 }

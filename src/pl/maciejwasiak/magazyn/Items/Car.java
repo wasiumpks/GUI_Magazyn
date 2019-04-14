@@ -7,10 +7,10 @@ package pl.maciejwasiak.magazyn.Items;
 
 public class Car extends Item {
     private int engineCapacity;
-    private String fuelType;
+    private FuelType fuelType;
     private boolean approval;
 
-    public Car(String name, int engineCapacity, String fuelType, int volumeOfItem, boolean approval, boolean isFoldable) {
+    public Car(String name, int engineCapacity, FuelType fuelType, int volumeOfItem, boolean approval, boolean isFoldable) {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.approval = approval;
@@ -19,7 +19,7 @@ public class Car extends Item {
         this.name = name;
     }
 
-    public Car(String name, int engineCapacity, String fuelType, boolean approval, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
+    public Car(String name, int engineCapacity, FuelType fuelType, boolean approval, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.approval = approval;
@@ -39,11 +39,11 @@ public class Car extends Item {
         this.engineCapacity = engineCapacity;
     }
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 

@@ -6,18 +6,22 @@
 
 package pl.maciejwasiak.magazyn;
 
+import pl.maciejwasiak.magazyn.Exceptions.NeverRentException;
+
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Person {
 
-    private int howManyRents;
+    private static int id = 0;
+    private int howManyRents, personID;
     private String name, surname, address, dateOfBirth, pesel;
     private ZonedDateTime dateOfFirstRent;
     private List<Room> rooms;
 
     public Person(String name, String surname, String adress, String dateOfBirth, String pesel) {
+        this.personID = id++;
         this.name = name;
         this.surname = surname;
         this.address = adress;
@@ -25,6 +29,14 @@ public class Person {
         this.howManyRents = 0;
         this.pesel = pesel;
         this.rooms = new ArrayList<>();
+    }
+
+    public int getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(int personID) {
+        this.personID = personID;
     }
 
     public String getName() {
@@ -107,7 +119,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Osoba: \n" + " Imie: " + name + "\n Nazwisko: " + surname + "\n Adres: " + address + "\n Data urodzenia: " + dateOfBirth + "\n Pesel: " + pesel + "\n Data pierwszego wynajmu: " + dateOfFirstRent + "\n Ilosc wynajmow: " + howManyRents;
+        return "Osoba: \n" + "ID:" + personID + "\n Imie: " + name + "\n Nazwisko: " + surname + "\n Adres: " + address + "\n Data urodzenia: " + dateOfBirth + "\n Pesel: " + pesel + "\n Data pierwszego wynajmu: " + dateOfFirstRent + "\n Ilosc wynajmow: " + howManyRents;
 
     }
 }

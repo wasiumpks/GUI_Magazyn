@@ -1,35 +1,163 @@
-Magazyn: 
- Pojemnosc: 456.56, Ilosc pomieszczen: 5
+Magazyn:,
+ Ilosc pomieszczen: 10
 
 Pokoj: 
  Id: 0,
  Wynajety na: 0 dni,
- Wymiar x: 500.0,
- Wymiar y: 500.0,
- Wymiar z: 200.0,
- Objetosc: 500000.0,
- Wolna objetosc: 300000.0,
+ Wymiar x: 10.0,
+ Wymiar y: 10.0,
+ Wymiar z: 3.0,
+ Objetosc: 3.0,
+ Wolna objetosc: 3.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
  Najemca: null,
  Data wynajmu: null,
- Data opuszczenia: 2019-04-13T14:48:11.480+02:00[Europe/Belgrade],
- Lista przedmiotow w pomieszczeniu: [Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}, Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}, Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}, Car{engineCapacity=3000, fuelType='petrol', approval=true, volumeOfItem=50000.0, xDimension=0.0, yDimension=0.0, zDimension=0.0, isFoldable=false, name='e39'}]
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
 
 Pokoj: 
  Id: 1,
  Wynajety na: 0 dni,
- Wymiar x: 500.0,
- Wymiar y: 500.0,
- Wymiar z: 200.0,
- Objetosc: 500000.0,
- Wolna objetosc: 500000.0,
+ Wymiar x: 10.0,
+ Wymiar y: 5.0,
+ Wymiar z: 3.0,
+ Objetosc: 1.5,
+ Wolna objetosc: 1.5,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
  Najemca: null,
  Data wynajmu: null,
- Data opuszczenia: 2019-04-13T14:48:11.480+02:00[Europe/Belgrade],
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 2,
+ Wynajety na: 0 dni,
+ Wymiar x: 10.0,
+ Wymiar y: 10.0,
+ Wymiar z: 3.0,
+ Objetosc: 3.0,
+ Wolna objetosc: 3.0,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 3,
+ Wynajety na: 0 dni,
+ Wymiar x: 10.0,
+ Wymiar y: 17.0,
+ Wymiar z: 3.0,
+ Objetosc: 5.1,
+ Wolna objetosc: 5.1,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 4,
+ Wynajety na: 0 dni,
+ Wymiar x: 10.0,
+ Wymiar y: 10.0,
+ Wymiar z: 3.0,
+ Objetosc: 3.0,
+ Wolna objetosc: 3.0,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 5,
+ Wynajety na: 0 dni,
+ Wymiar x: 20.0,
+ Wymiar y: 20.0,
+ Wymiar z: 3.0,
+ Objetosc: 12.0,
+ Wolna objetosc: 12.0,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 6,
+ Wynajety na: 0 dni,
+ Wymiar x: 10.0,
+ Wymiar y: 10.0,
+ Wymiar z: 3.0,
+ Objetosc: 3.0,
+ Wolna objetosc: 3.0,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 7,
+ Wynajety na: 0 dni,
+ Wymiar x: 7.0,
+ Wymiar y: 8.0,
+ Wymiar z: 3.0,
+ Objetosc: 1.68,
+ Wolna objetosc: 1.68,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 8,
+ Wynajety na: 0 dni,
+ Wymiar x: 19.0,
+ Wymiar y: 7.0,
+ Wymiar z: 3.0,
+ Objetosc: 3.99,
+ Wolna objetosc: 3.99,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
+ Lista przedmiotow w pomieszczeniu: []
+
+Pokoj: 
+ Id: 9,
+ Wynajety na: 0 dni,
+ Wymiar x: 10.0,
+ Wymiar y: 13.0,
+ Wymiar z: 3.0,
+ Objetosc: 3.9,
+ Wolna objetosc: 3.9,
+ Powod wylaczenia pokoju null,
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
+ Data opuszczenia: null,
  Lista przedmiotow w pomieszczeniu: []
 

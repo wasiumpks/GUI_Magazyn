@@ -6,6 +6,7 @@
 
 package pl.maciejwasiak.magazyn;
 
+import pl.maciejwasiak.magazyn.Exceptions.TooManyItemsException;
 import pl.maciejwasiak.magazyn.Items.Item;
 
 import java.time.ZonedDateTime;

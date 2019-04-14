@@ -10,42 +10,41 @@ public class Bicycle extends Item {
     private String brakesType;
     private boolean isSuspended;
 
-    public Bicycle(String name, int howManyGears, String brakesType, int volumeOfItem, boolean isFoldable) {
-        this.howManyGears = howManyGears;
-        this.brakesType = brakesType;
-        this.isSuspended = false;
-        this.volumeOfItem = volumeOfItem;
-        this.isFoldable = isFoldable;
-        this.name = name;
-    }
+    /*
 
-    public Bicycle(String name, int howManyGears, String brakesType, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
-        this.howManyGears = howManyGears;
-        this.brakesType = brakesType;
-        this.isSuspended = false;
-        this.volumeOfItem = (xDimension * yDimension * zDimension);
-        this.isFoldable = isFoldable;
-        this.xDimension = xDimension;
-        this.zDimension = zDimension;
-        this.yDimension = yDimension;
-        this.name = name;
+        public Rower(String nazwa, float powierzchnia, int liczbaPrzerzutek, HamulceTyp typ, int liczbaAmortyzatorów, boolean czySkladany) {
+        super(nazwa, powierzchnia);
+        this.liczbaPrzerzutek = liczbaPrzerzutek;
+        this.typ = typ;
+        this.liczbaAmortyzatorów = liczbaAmortyzatorów;
+        if(liczbaAmortyzatorów == 0){
+            this.czyAmortyzowany = false;
+        }else{
+            this.czyAmortyzowany = true;
+        }
+        this.czySkladany = czySkladany;
+        this.czyZlozony = false;
     }
+    public Rower(String nazwa, float dlugosc, float szerokosc, float wysokosc, int liczbaPrzerzutek, HamulceTyp typ, int liczbaAmortyzatorów, boolean czySkladany){
+        this(nazwa,(dlugosc*szerokosc*wysokosc), liczbaPrzerzutek, typ, liczbaAmortyzatorów, czySkladany);
+    }
+     */
 
-    public Bicycle(String name, int howManyGears, String brakesType, int howManyShockAbsorbers, int volumeOfItem, boolean isFoldable) {
+
+    public Bicycle(String name, int howManyGears, String brakesType, int howManyShockAbsorbers, boolean isFoldable, int volumeOfItem) {
         this.howManyGears = howManyGears;
         this.brakesType = brakesType;
-        this.isSuspended = true;
         this.volumeOfItem = volumeOfItem;
         this.howManyShockAbsorbers = howManyShockAbsorbers;
         this.isFoldable = isFoldable;
         this.name = name;
+        this.isSuspended = howManyShockAbsorbers != 0;
 
     }
 
     public Bicycle(String name, int howManyGears, String brakesType, int howManyShockAbsorbers, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
         this.howManyGears = howManyGears;
         this.brakesType = brakesType;
-        this.isSuspended = true;
         this.volumeOfItem = (xDimension * yDimension * zDimension);
         this.howManyShockAbsorbers = howManyShockAbsorbers;
         this.isFoldable = isFoldable;
@@ -53,6 +52,8 @@ public class Bicycle extends Item {
         this.zDimension = zDimension;
         this.yDimension = yDimension;
         this.name = name;
+        this.isSuspended = howManyShockAbsorbers != 0;
+
     }
 
     public int getHowManyGears() {

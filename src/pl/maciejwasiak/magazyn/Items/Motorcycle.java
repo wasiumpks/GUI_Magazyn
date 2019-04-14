@@ -1,11 +1,17 @@
+/*
+ * Copyright (c) 2019.
+ * Created by Maciej Wasiak
+ * s18952@pjwstk.edu.pl
+ */
+
 package pl.maciejwasiak.magazyn.Items;
 
 public class Motorcycle extends Item {
     private int engineCapacity;
-    private String fuelType;
+    private FuelType fuelType;
     private boolean approval;
 
-    public Motorcycle(String name, int engineCapacity, String fuelType, int volumeOfItem, boolean approval, boolean isFoldable) {
+    public Motorcycle(String name, int engineCapacity, FuelType fuelType, int volumeOfItem, boolean approval, boolean isFoldable) {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.approval = approval;
@@ -14,7 +20,7 @@ public class Motorcycle extends Item {
         this.name = name;
     }
 
-    public Motorcycle(String name, int engineCapacity, String fuelType, boolean approval, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
+    public Motorcycle(String name, int engineCapacity, FuelType fuelType, boolean approval, boolean isFoldable, float xDimension, float yDimension, float zDimension) {
         this.engineCapacity = engineCapacity;
         this.fuelType = fuelType;
         this.approval = approval;
@@ -34,11 +40,11 @@ public class Motorcycle extends Item {
         this.engineCapacity = engineCapacity;
     }
 
-    public String getFuelType() {
+    public FuelType getFuelType() {
         return fuelType;
     }
 
-    public void setFuelType(String fuelType) {
+    public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
     }
 

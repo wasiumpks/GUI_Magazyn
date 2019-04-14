@@ -6,77 +6,191 @@
 
 package pl.maciejwasiak.magazyn;
 
-import pl.maciejwasiak.magazyn.Items.Car;
-import pl.maciejwasiak.magazyn.Items.Motorcycle;
+import pl.maciejwasiak.magazyn.Items.*;
 
 import java.io.IOException;
-import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Person p = new Person("Jan", "Kowalski", "Zlota 9, 01-61, Warszawa", "11-06-1998", "9800000000");
-        //System.out.println(p);
-
-        Warehouse w = new Warehouse(456.56f, 5);
-        //System.out.println(w);
-
+        List<Person> listOfPersons = new ArrayList<>();
         List<Room> listOfRooms = new ArrayList<>();
+        List<Item> listOfItems = new ArrayList<>();
 
-        listOfRooms.add(new Room(500, 500, 200));
-        listOfRooms.add(new Room(500, 500, 200));
-        for (Room r : listOfRooms) {
-            r.rent(p, 30, ZonedDateTime.now());
-//            System.out.println(r);
+        Warehouse w1 = new Warehouse(10);
+        Room r1 = new Room(10, 10, 3);
+        Room r2 = new Room(10, 5, 3);
+        Room r3 = new Room(10, 10, 3);
+        Room r4 = new Room(10, 17, 3);
+        Room r5 = new Room(10, 10, 3);
+        Room r6 = new Room(20, 20, 3);
+        Room r7 = new Room(10, 10, 3);
+        Room r8 = new Room(7, 8, 3);
+        Room r9 = new Room(19, 7, 3);
+        Room r10 = new Room(10, 13, 3);
+
+        Person p1 = new Person("Jan", "Kowalski", "Bursztynowa 14, Warszawa", "10-10-1998", "98101001011");
+        Person p2 = new Person("Joanna", "Kowalska", "Bursztynowa 14, Warszawa", "01-11-1998", "98110101011");
+        Person p3 = new Person("Feliks", "Kowalski", "Bursztynowa 14, Warszawa", "10-10-1980", "80101001011");
+        Person p4 = new Person("Kornelia", "Kowalska", "Bursztynowa 14, Warszawa", "03-03-1982", "92030301011");
+        Person p5 = new Person("Patryk", "Grzeszczak", "Kasztanowa 53A, Warszawa", "10-03-1998", "98031001011");
+        Person p6 = new Person("Tomasz", "Michałowski", "Wiejska 3, Warszawa", "01-01-1991", "91010101011");
+
+        Bicycle b1 = new Bicycle("Trek Domane ALR5", 10, "Hydrauliczne", 0, false, 2.5f, 1f, 0.3f);
+        Bicycle b2 = new Bicycle("Trek Domane ALR6", 11, "Zaciskowe", 0, false, 2.5f, 1f, 0.3f);
+        Bicycle b3 = new Bicycle("Trek Procaliber", 12, "Hydrauliczne", 1, false, 3f, 1f, 0.5f);
+        Bicycle b4 = new Bicycle("Kreidler Stud Carbon", 11, "Hydrauliczne", 1, false, 3f, 1.2f, 0.6f);
+        Bicycle b5 = new Bicycle("Wigry 3", 1, "Zaciskowe", 0, true, 2f, 0.5f, 0.4f);
+
+        Car c1 = new Car("BMW", 3000, FuelType.PETROL, true, false, 5f, 2f, 3.5f);
+        Car c2 = new Car("Jaguar", 5000, FuelType.PETROL, true, false, 6f, 2f, 4f);
+        Car c3 = new Car("Citroen", 1200, FuelType.DIESEL, false, false, 3f, 1.8f, 3f);
+        Car c4 = new Car("Honda", 2000, FuelType.DIESEL, true, false, 5f, 2f, 3.5f);
+        Car c5 = new Car("VW", 3600, FuelType.PETROL, true, false, 5.5f, 2f, 4f);
+
+        Motorcycle m1 = new Motorcycle("Yamaha", 1200, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
+        Motorcycle m2 = new Motorcycle("Honda", 1000, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
+        Motorcycle m3 = new Motorcycle("KTM", 650, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
+        Motorcycle m4 = new Motorcycle("Suzuki", 1200, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
+        Motorcycle m5 = new Motorcycle("Yamaha", 125, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
+
+        LawnMower l1 = new LawnMower("Gardena", 2, FuelType.ELECTRICAL, true, 1f, 1f, 0.6f);
+        LawnMower l2 = new LawnMower("NEC", 200, FuelType.PETROL, true, 1f, 1f, 0.6f);
+        LawnMower l3 = new LawnMower("KOSIARKA ELEKTRYCZNA", 2, FuelType.ELECTRICAL, true, 1f, 1f, 0.6f);
+        LawnMower l4 = new LawnMower("KOSIARKA SPALINOWA", 150, FuelType.PETROL, true, 1f, 1f, 0.6f);
+        LawnMower l5 = new LawnMower("KOSIARKA KOSIARKA SPALINOWA", 300, FuelType.PETROL, true, 1f, 1f, 0.6f);
+
+        listOfPersons.add(p1);
+        listOfPersons.add(p2);
+        listOfPersons.add(p3);
+        listOfPersons.add(p4);
+        listOfPersons.add(p5);
+        listOfPersons.add(p6);
+
+        listOfRooms.add(r1);
+        listOfRooms.add(r2);
+        listOfRooms.add(r3);
+        listOfRooms.add(r4);
+        listOfRooms.add(r5);
+        listOfRooms.add(r6);
+        listOfRooms.add(r7);
+        listOfRooms.add(r8);
+        listOfRooms.add(r9);
+        listOfRooms.add(r10);
+
+        listOfItems.add(b1);
+        listOfItems.add(b2);
+        listOfItems.add(b3);
+        listOfItems.add(b4);
+        listOfItems.add(b5);
+        listOfItems.add(c1);
+        listOfItems.add(c2);
+        listOfItems.add(c3);
+        listOfItems.add(c4);
+        listOfItems.add(c5);
+        listOfItems.add(m1);
+        listOfItems.add(m2);
+        listOfItems.add(m3);
+        listOfItems.add(m4);
+        listOfItems.add(m5);
+        listOfItems.add(l1);
+        listOfItems.add(l2);
+        listOfItems.add(l3);
+        listOfItems.add(l4);
+        listOfItems.add(l5);
+
+        Scanner input = new Scanner(System.in);
+        int operationKey = -1;
+        while (operationKey != 0) {
+            System.out.println("Zarzadzanie magazynem: \nnacisnij [0] zeby wyjsc z aplikacji\nnacisnij [1] zeby wybrac osobe\nnacisnij [2] zeby zarzadzac pomieszczeniami\nnacisnij [3] zeby zapisac stan magazynu");
+            operationKey = input.nextInt();
+            switch (operationKey) {
+                case 0:
+                    break;
+                case 1:
+                    System.out.println("Lista osob");
+                    for (Person p : listOfPersons) {
+                        System.out.println(p);
+                    }
+                    System.out.println("Wybierz osobe");
+                    int tmp = input.nextInt();
+
+                    break;
+                case 2:
+                    System.out.println("nacisnij [0] zeby wyjsc\nnacisnij [1] zeby wynajac pomieszczenie\nnacisnij [2] zeby wyswietlic szczegoly pomieszczenia");
+                    tmp = input.nextInt();
+                    switch (tmp) {
+                        case 0:
+                            break;
+                        case 1:
+                            for (Room x : listOfRooms) {
+                                if (!x.isForRent()) {
+                                    System.out.println(x);
+                                }
+                            }
+                            System.out.println("podaj numer pomieszczenia, ktore chcesz wynajac");
+                            break;
+                        case 2:
+                            for (Room x : listOfRooms) {
+                                System.out.println(x);
+                            }
+                            System.out.println("nacisnij [0] zeby wyjsc\nnacisnij [1] zeby sprawdzic pomieszczenie konkretnej osoby\nnacisnij [2] zeby wlozyc/wjac przedmiot");
+                            tmp = input.nextInt();
+                            switch (tmp) {
+                                case 0:
+                                    break;
+                                case 1:
+                                    for (Person x : listOfPersons) {
+                                        if (!listOfItems.isEmpty()) {
+                                            System.out.println(x);
+                                        }
+                                    }
+                                    System.out.println("Podaj numer osoby, ktorej pomieszczenie chcesz wyswietlic");
+                                    int inputPerson = input.nextInt();
+
+                                    break;
+                                case 2:
+                                    System.out.println("nacisnij [0] zeby wyjsc\nnacisnij [1] zeby wlozyc przedmiot\nnacisnij [2] zeby wyjac przedmiot");
+                                    int inputPutGet = input.nextInt();
+                                    if (inputPutGet == 0) {
+                                        break;
+                                    }
+                                    if (inputPutGet == 1) {
+                                        for (Room x : listOfRooms) {
+                                            System.out.println(x);
+                                        }
+                                        System.out.println("Wybierz pomieszczenie, do ktorego chcesz wlozyc przedmiot");
+                                        int inputPut = input.nextInt();
+
+                                    }
+                                    if (inputPutGet == 2) {
+                                        for (Room x : listOfRooms) {
+                                            System.out.println(x);
+                                        }
+                                        System.out.println("Wybierz pomieszczenie, z ktorego chcesz wyjac przedmiot");
+                                        int inputGet = input.nextInt();
+
+                                    }
+                            }
+                            break;
+                    }
+                case 3:
+                    try {
+                        PrintToTxt.print(w1, listOfRooms);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                default:
+                    System.out.println("Wybierz poprawna opcje!");
+
+
+            }
+
         }
-
-        for (Room r : listOfRooms) {
-            r.leave();
-            //System.out.println(r);
-        }
-
-        Motorcycle[] tab = new Motorcycle[2];
-        Motorcycle cbr125 = new Motorcycle("Honda", 125, "Petrol", true, false, 200f, 200f, 50f);
-        Motorcycle cbr250 = new Motorcycle("SzybszaNizWyglada", 250, "Petrol", true, false, 200f, 200f, 50f);
-        tab[0] = cbr125;
-        tab[1] = cbr250;
-
-        Car[] tabOfCars = new Car[2];
-        Car bmw = new Car("e39", 3000, "petrol", 50000, true, false);
-        Car bmw1 = new Car("e36", 3000, "petrol", 50000, true, false);
-        tabOfCars[0] = bmw;
-        tabOfCars[1] = bmw1;
-
-        Arrays.sort(tabOfCars);
-
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//        listOfRooms.get(0).insert(bmw);
-//
-//        System.out.println(listOfRooms.get(0));
-//        System.out.println(listOfRooms.get(0).getFreeVolume());
-
-        //listOfRooms.get(0).remove();
-
-        //System.out.println(listOfRooms.get(0).getFreeVolume());
-
-        try {
-            PrintToTxt.print(w, listOfRooms);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
     }
+
 }

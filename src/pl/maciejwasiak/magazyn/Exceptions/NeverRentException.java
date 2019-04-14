@@ -4,7 +4,7 @@
  * s18952@pjwstk.edu.pl
  */
 
-package pl.maciejwasiak.magazyn;
+package pl.maciejwasiak.magazyn.Exceptions;
 
 public class NeverRentException extends Exception {
     public NeverRentException(String message) {
