@@ -20,6 +20,9 @@ public class Person {
     private ZonedDateTime dateOfFirstRent;
     private List<Room> rooms;
 
+    public Person() {
+    }
+
     public Person(String name, String surname, String adress, String dateOfBirth, String pesel) {
         this.personID = id++;
         this.name = name;
@@ -119,7 +122,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Osoba: \n" + "ID:" + personID + "\n Imie: " + name + "\n Nazwisko: " + surname + "\n Adres: " + address + "\n Data urodzenia: " + dateOfBirth + "\n Pesel: " + pesel + "\n Data pierwszego wynajmu: " + dateOfFirstRent + "\n Ilosc wynajmow: " + howManyRents;
+        return "ID:" + personID + "\n Imie: " + name + "\n Nazwisko: " + surname + "\n Adres: " + address + "\n Data urodzenia: " + dateOfBirth + "\n Pesel: " + pesel + "\n Data pierwszego wynajmu: " + dateOfFirstRent + "\n Ilosc wynajmow: " + howManyRents;
 
     }
 }

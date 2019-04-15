@@ -83,17 +83,25 @@ Pokoj:
 
 Pokoj: 
  Id: 5,
- Wynajety na: 0 dni,
- Wymiar x: 20.0,
+ Wynajety na: 1 dni,
+ Wymiar x: 200.0,
  Wymiar y: 20.0,
  Wymiar z: 3.0,
- Objetosc: 12.0,
- Wolna objetosc: 12.0,
+ Objetosc: 120.0,
+ Wolna objetosc: 120.0,
  Powod wylaczenia pokoju null,
- Czy jest w użyciu: false,
- Czy jest na wynajem: true,
- Najemca: null,
- Data wynajmu: null,
+ Czy jest w użyciu: true,
+ Czy jest na wynajem: false,
+ Najemca: Osoba: 
+ID:5
+ Imie: Tomasz
+ Nazwisko: Michałowski
+ Adres: Wiejska 3, Warszawa
+ Data urodzenia: 01-01-1991
+ Pesel: 91010101011
+ Data pierwszego wynajmu: 2019-04-15T11:03:58.310+02:00[Europe/Belgrade]
+ Ilosc wynajmow: 1,
+ Data wynajmu: 2019-04-15T11:03:58.310+02:00[Europe/Belgrade],
  Data opuszczenia: null,
  Lista przedmiotow w pomieszczeniu: []
 

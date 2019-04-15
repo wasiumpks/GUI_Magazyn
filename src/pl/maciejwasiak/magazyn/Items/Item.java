@@ -8,9 +8,23 @@ package pl.maciejwasiak.magazyn.Items;
 import java.util.Comparator;
 
 public abstract class Item implements Comparable<Item> {
+    private static int id = 0;
+    private int itemID = 0;
     float volumeOfItem, xDimension, yDimension, zDimension;
     boolean isFoldable;
     String name;
+
+    public Item() {
+        this.itemID = id++;
+    }
+
+    public int getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(int itemID) {
+        this.itemID = itemID;
+    }
 
     public float getVolumeOfItem() {
         return volumeOfItem;

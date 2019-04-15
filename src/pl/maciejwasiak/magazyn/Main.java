@@ -9,6 +9,7 @@ package pl.maciejwasiak.magazyn;
 import pl.maciejwasiak.magazyn.Items.*;
 
 import java.io.IOException;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,14 +27,14 @@ public class Main {
         Room r3 = new Room(10, 10, 3);
         Room r4 = new Room(10, 17, 3);
         Room r5 = new Room(10, 10, 3);
-        Room r6 = new Room(20, 20, 3);
+        Room r6 = new Room(200, 20, 3);
         Room r7 = new Room(10, 10, 3);
         Room r8 = new Room(7, 8, 3);
         Room r9 = new Room(19, 7, 3);
         Room r10 = new Room(10, 13, 3);
 
         Person p1 = new Person("Jan", "Kowalski", "Bursztynowa 14, Warszawa", "10-10-1998", "98101001011");
-        Person p2 = new Person("Joanna", "Kowalska", "Bursztynowa 14, Warszawa", "01-11-1998", "98110101011");
+        Person p2 = new Person("Jakub", "Wozniak", "Bursztynowa 14, Warszawa", "01-11-1998", "98110101011");
         Person p3 = new Person("Feliks", "Kowalski", "Bursztynowa 14, Warszawa", "10-10-1980", "80101001011");
         Person p4 = new Person("Kornelia", "Kowalska", "Bursztynowa 14, Warszawa", "03-03-1982", "92030301011");
         Person p5 = new Person("Patryk", "Grzeszczak", "Kasztanowa 53A, Warszawa", "10-03-1998", "98031001011");
@@ -102,80 +103,81 @@ public class Main {
         listOfItems.add(l4);
         listOfItems.add(l5);
 
+        Person choosingPerson = new Person();
+        Room rentingRoom = new Room();
         Scanner input = new Scanner(System.in);
+        System.out.println("Program do obsługi magazynu\nProjekt na przedmiot GUI\nAutor: Maciej Wasiak\n\n");
         int operationKey = -1;
         while (operationKey != 0) {
-            System.out.println("Zarzadzanie magazynem: \nnacisnij [0] zeby wyjsc z aplikacji\nnacisnij [1] zeby wybrac osobe\nnacisnij [2] zeby zarzadzac pomieszczeniami\nnacisnij [3] zeby zapisac stan magazynu");
+            System.out.println("Zarzadzanie magazynem: \nwybierz 0 aby wyjsc z aplikacji\nwybierz 1 aby wybrac osobe\nwybierz 2 aby zarzadzac pomieszczeniami\nwybierz 3 aby zapisac stan magazynu");
             operationKey = input.nextInt();
             switch (operationKey) {
                 case 0:
                     break;
                 case 1:
-                    System.out.println("Lista osob");
-                    for (Person p : listOfPersons) {
-                        System.out.println(p);
-                    }
-                    System.out.println("Wybierz osobe");
-                    int tmp = input.nextInt();
+                    System.out.println("Lista osob\n");
+                    choosingPerson = Main.choosePerson(listOfPersons);
 
+                    System.out.println("Informacje o osobie:\n");
+                    System.out.println(choosingPerson.toString());
                     break;
                 case 2:
-                    System.out.println("nacisnij [0] zeby wyjsc\nnacisnij [1] zeby wynajac pomieszczenie\nnacisnij [2] zeby wyswietlic szczegoly pomieszczenia");
-                    tmp = input.nextInt();
+                    System.out.println("wybierz 0 aby wyjsc\nwybierz 1 aby wynajac pomieszczenie\nwybierz 2 aby wyswietlic szczegoly pomieszczenia");
+                    int tmp = input.nextInt();
                     switch (tmp) {
-                        case 0:
-                            break;
                         case 1:
-                            for (Room x : listOfRooms) {
-                                if (!x.isForRent()) {
-                                    System.out.println(x);
-                                }
-                            }
-                            System.out.println("podaj numer pomieszczenia, ktore chcesz wynajac");
+                            rentingRoom = Main.chooseRoom(listOfRooms);
+                            choosingPerson = Main.choosePerson(listOfPersons);
+                            System.out.println("Na jak długo chcesz wynajac:");
+                            int forHowmanyDaysRent = input.nextInt();
+                            rentingRoom.rent(choosingPerson, forHowmanyDaysRent, ZonedDateTime.now());
+                            break;
+                        case 0:
                             break;
                         case 2:
                             for (Room x : listOfRooms) {
-                                System.out.println(x);
+                                System.out.println(x.getRoomId() + ". Miejsce: " + x.getVolume() + " Czy wynajety: " + x.isInUse() + " Wynajety przez: " + x.getRenter() + "\n");
                             }
-                            System.out.println("nacisnij [0] zeby wyjsc\nnacisnij [1] zeby sprawdzic pomieszczenie konkretnej osoby\nnacisnij [2] zeby wlozyc/wjac przedmiot");
+                            System.out.println("wybierz 0 aby wyjsc\nwybierz 1 aby sprawdzic pomieszczenie konkretnej osoby\nwybierz 2 aby wlozyc/wyjac przedmiot");
                             tmp = input.nextInt();
                             switch (tmp) {
                                 case 0:
                                     break;
                                 case 1:
-                                    for (Person x : listOfPersons) {
-                                        if (!listOfItems.isEmpty()) {
-                                            System.out.println(x);
-                                        }
-                                    }
-                                    System.out.println("Podaj numer osoby, ktorej pomieszczenie chcesz wyswietlic");
-                                    int inputPerson = input.nextInt();
-
+                                    Person showWarehouseOfPerson = new Person();
+                                    showWarehouseOfPerson = Main.choosePerson(listOfPersons);
+                                    System.out.println(showWarehouseOfPerson.getRooms());
                                     break;
                                 case 2:
-                                    System.out.println("nacisnij [0] zeby wyjsc\nnacisnij [1] zeby wlozyc przedmiot\nnacisnij [2] zeby wyjac przedmiot");
+                                    System.out.println("wybierz 0 aby wyjsc\nnacisnij 1 aby wlozyc przedmiot\nwybierz 2 aby wyjac przedmiot");
                                     int inputPutGet = input.nextInt();
                                     if (inputPutGet == 0) {
                                         break;
                                     }
                                     if (inputPutGet == 1) {
-                                        for (Room x : listOfRooms) {
-                                            System.out.println(x);
-                                        }
-                                        System.out.println("Wybierz pomieszczenie, do ktorego chcesz wlozyc przedmiot");
-                                        int inputPut = input.nextInt();
+                                        Person p = null;
+                                        p = Main.choosePerson(listOfPersons);
+                                        Room inputPutItemToThisRoom = null;
+                                        inputPutItemToThisRoom = Main.chooseRoom(p);
+
+                                        Item item = null;
+                                        item = Main.chooseitem(listOfItems);
+                                        inputPutItemToThisRoom.insert(item);
 
                                     }
                                     if (inputPutGet == 2) {
-                                        for (Room x : listOfRooms) {
-                                            System.out.println(x);
-                                        }
-                                        System.out.println("Wybierz pomieszczenie, z ktorego chcesz wyjac przedmiot");
-                                        int inputGet = input.nextInt();
 
+                                        Person p = null;
+                                        p = Main.choosePerson(listOfPersons);
+                                        Room removeItemFromThisRoom = null;
+                                        removeItemFromThisRoom = Main.chooseRoom(p);
+
+                                        Item item = null;
+                                        item = Main.chooseitem(removeItemFromThisRoom.getList());
+                                        removeItemFromThisRoom.remove(item);
                                     }
                             }
-                            break;
+
                     }
                 case 3:
                     try {
@@ -185,12 +187,78 @@ public class Main {
                     }
                     break;
                 default:
-                    System.out.println("Wybierz poprawna opcje!");
+                    System.out.println("Wybrales zla opcje!\nWybierz poprawna opcje");
 
 
             }
 
         }
+
     }
 
+    public static Person choosePerson(List<Person> listOfPersons) {
+        for (Person p : listOfPersons) {
+            System.out.println(p.getPersonID() + ". " + p.getName() + " " + p.getSurname());
+        }
+        Person choosingPerson = new Person();
+        System.out.println("Wybierz osobe: \n");
+        Scanner input = new Scanner(System.in);
+        int tmp = input.nextInt();
+        for (Person p : listOfPersons) {
+            if (p.getPersonID() == tmp) {
+                choosingPerson = p;
+            }
+        }
+        return choosingPerson;
+    }
+
+
+    public static Item chooseitem(List<Item> listOfItems) {
+        Item item = null;
+        for (Item i : listOfItems) {
+            System.out.println(i.getItemID() + ". " + i.getName());
+        }
+
+        System.out.println("Wybierz przedmiot: \n");
+        Scanner input = new Scanner(System.in);
+        int tmp = input.nextInt();
+        for (Item i : listOfItems) {
+            if (i.getItemID() == tmp) {
+                item = i;
+            }
+        }
+        return item;
+    }
+
+    public static Room chooseRoom(List<Room> listOfRooms) {
+        for (Room r : listOfRooms) {
+            System.out.println(r.getRoomId() + ". Miejsce: " + r.getVolume() + " Czy wynajete: " + r.isInUse() + "\n");
+        }
+        Room choosingRoom = new Room();
+        System.out.println("Wybierz pomieszczenie: \n");
+        Scanner input = new Scanner(System.in);
+        int tmp = input.nextInt();
+        for (Room p : listOfRooms) {
+            if (p.getRoomId() == tmp) {
+                choosingRoom = p;
+            }
+        }
+        return choosingRoom;
+    }
+
+    public static Room chooseRoom(Person person) {
+        for (Room r : person.getRooms()) {
+            System.out.println(r.getRoomId() + ". Miejsce: " + r.getVolume() + "\n");
+        }
+        Room choosingRoom = new Room();
+        System.out.println("Wybierz pomieszczenie: \n");
+        Scanner input = new Scanner(System.in);
+        int tmp = input.nextInt();
+        for (Room p : person.getRooms()) {
+            if (p.getRoomId() == tmp) {
+                choosingRoom = p;
+            }
+        }
+        return choosingRoom;
+    }
 }

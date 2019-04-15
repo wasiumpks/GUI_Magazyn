@@ -25,6 +25,9 @@ public class Room implements RoomInterface {
     private List<Item> list;
     private Map<Person, Room> mapOfRoomsAndPersons;
 
+    public Room() {
+    }
+
     public Room(float xDimension, float yDimension, float zDimension) {
         this.roomId = id++;
         this.xDimension = xDimension;
