@@ -59,9 +59,9 @@ public class Main {
         Motorcycle m4 = new Motorcycle("Suzuki", 1200, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
         Motorcycle m5 = new Motorcycle("Yamaha", 125, FuelType.PETROL, true, false, 1.5f, 1f, 0.6f);
 
-        LawnMower l1 = new LawnMower("Gardena", 2, FuelType.ELECTRICAL, true, 1f, 1f, 0.6f);
+        LawnMower l1 = new LawnMower("Gardena", 2, FuelType.ELECTRIC, true, 1f, 1f, 0.6f);
         LawnMower l2 = new LawnMower("NEC", 200, FuelType.PETROL, true, 1f, 1f, 0.6f);
-        LawnMower l3 = new LawnMower("KOSIARKA ELEKTRYCZNA", 2, FuelType.ELECTRICAL, true, 1f, 1f, 0.6f);
+        LawnMower l3 = new LawnMower("KOSIARKA ELEKTRYCZNA", 2, FuelType.ELECTRIC, true, 1f, 1f, 0.6f);
         LawnMower l4 = new LawnMower("KOSIARKA SPALINOWA", 150, FuelType.PETROL, true, 1f, 1f, 0.6f);
         LawnMower l5 = new LawnMower("KOSIARKA KOSIARKA SPALINOWA", 300, FuelType.PETROL, true, 1f, 1f, 0.6f);
 

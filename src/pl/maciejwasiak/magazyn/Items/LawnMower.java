@@ -30,7 +30,6 @@ public class LawnMower extends Item {
         this.zDimension = zDimension;
     }
 
-
     public int getEngineCapacity() {
         return engineCapacity;
     }
@@ -39,12 +38,25 @@ public class LawnMower extends Item {
         this.engineCapacity = engineCapacity;
     }
 
-
     public FuelType getFuelType() {
         return fuelType;
     }
 
     public void setFuelType(FuelType fuelType) {
         this.fuelType = fuelType;
+    }
+
+    @Override
+    public String toString() {
+        return "LawnMower{" +
+                "engineCapacity=" + engineCapacity +
+                ", fuelType=" + fuelType +
+                ", volumeOfItem=" + volumeOfItem +
+                ", xDimension=" + xDimension +
+                ", yDimension=" + yDimension +
+                ", zDimension=" + zDimension +
+                ", isFoldable=" + isFoldable +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

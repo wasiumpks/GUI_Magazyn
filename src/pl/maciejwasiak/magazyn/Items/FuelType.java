@@ -9,6 +9,6 @@ package pl.maciejwasiak.magazyn.Items;
 public enum FuelType {
     PETROL,
     DIESEL,
-    ELECTRICAL,
+    ELECTRIC,
     LPG
 }
