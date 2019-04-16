@@ -7,8 +7,8 @@ Pokoj:
  Wymiar x: 10.0,
  Wymiar y: 10.0,
  Wymiar z: 3.0,
- Objetosc: 3.0,
- Wolna objetosc: 3.0,
+ Objetosc: 300.0,
+ Wolna objetosc: 300.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
@@ -23,29 +23,36 @@ Pokoj:
  Wymiar x: 10.0,
  Wymiar y: 5.0,
  Wymiar z: 3.0,
- Objetosc: 1.5,
- Wolna objetosc: 1.5,
+ Objetosc: 150.0,
+ Wolna objetosc: 150.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
  Najemca: null,
  Data wynajmu: null,
- Data opuszczenia: null,
+ Data opuszczenia: 2019-04-16T11:05:48.488+02:00[Europe/Belgrade],
  Lista przedmiotow w pomieszczeniu: []
 
 Pokoj: 
  Id: 2,
- Wynajety na: 0 dni,
+ Wynajety na: 1 dni,
  Wymiar x: 10.0,
  Wymiar y: 10.0,
  Wymiar z: 3.0,
- Objetosc: 3.0,
- Wolna objetosc: 3.0,
+ Objetosc: 300.0,
+ Wolna objetosc: 300.0,
  Powod wylaczenia pokoju null,
- Czy jest w użyciu: false,
- Czy jest na wynajem: true,
- Najemca: null,
- Data wynajmu: null,
+ Czy jest w użyciu: true,
+ Czy jest na wynajem: false,
+ Najemca: ID:1
+ Imie: Jakub
+ Nazwisko: Wozniak
+ Adres: Rajmuda Klocka 69, Warszawa
+ Data urodzenia: 12-12-1999
+ Pesel: 98110101011
+ Data pierwszego wynajmu: 2019-04-16T11:05:30.814+02:00[Europe/Belgrade]
+ Ilosc wynajmow: 2,
+ Data wynajmu: 2019-04-16T11:05:41.443+02:00[Europe/Belgrade],
  Data opuszczenia: null,
  Lista przedmiotow w pomieszczeniu: []
 
@@ -55,8 +62,8 @@ Pokoj:
  Wymiar x: 10.0,
  Wymiar y: 17.0,
  Wymiar z: 3.0,
- Objetosc: 5.1,
- Wolna objetosc: 5.1,
+ Objetosc: 510.0,
+ Wolna objetosc: 510.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
@@ -71,8 +78,8 @@ Pokoj:
  Wymiar x: 10.0,
  Wymiar y: 10.0,
  Wymiar z: 3.0,
- Objetosc: 3.0,
- Wolna objetosc: 3.0,
+ Objetosc: 300.0,
+ Wolna objetosc: 300.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
@@ -83,25 +90,17 @@ Pokoj:
 
 Pokoj: 
  Id: 5,
- Wynajety na: 1 dni,
+ Wynajety na: 0 dni,
  Wymiar x: 200.0,
  Wymiar y: 20.0,
  Wymiar z: 3.0,
- Objetosc: 120.0,
- Wolna objetosc: 120.0,
+ Objetosc: 12000.0,
+ Wolna objetosc: 12000.0,
  Powod wylaczenia pokoju null,
- Czy jest w użyciu: true,
- Czy jest na wynajem: false,
- Najemca: Osoba: 
-ID:5
- Imie: Tomasz
- Nazwisko: Michałowski
- Adres: Wiejska 3, Warszawa
- Data urodzenia: 01-01-1991
- Pesel: 91010101011
- Data pierwszego wynajmu: 2019-04-15T11:03:58.310+02:00[Europe/Belgrade]
- Ilosc wynajmow: 1,
- Data wynajmu: 2019-04-15T11:03:58.310+02:00[Europe/Belgrade],
+ Czy jest w użyciu: false,
+ Czy jest na wynajem: true,
+ Najemca: null,
+ Data wynajmu: null,
  Data opuszczenia: null,
  Lista przedmiotow w pomieszczeniu: []
 
@@ -111,8 +110,8 @@ Pokoj:
  Wymiar x: 10.0,
  Wymiar y: 10.0,
  Wymiar z: 3.0,
- Objetosc: 3.0,
- Wolna objetosc: 3.0,
+ Objetosc: 300.0,
+ Wolna objetosc: 300.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
@@ -127,8 +126,8 @@ Pokoj:
  Wymiar x: 7.0,
  Wymiar y: 8.0,
  Wymiar z: 3.0,
- Objetosc: 1.68,
- Wolna objetosc: 1.68,
+ Objetosc: 168.0,
+ Wolna objetosc: 168.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
@@ -143,8 +142,8 @@ Pokoj:
  Wymiar x: 19.0,
  Wymiar y: 7.0,
  Wymiar z: 3.0,
- Objetosc: 3.99,
- Wolna objetosc: 3.99,
+ Objetosc: 399.0,
+ Wolna objetosc: 399.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,
@@ -159,8 +158,8 @@ Pokoj:
  Wymiar x: 10.0,
  Wymiar y: 13.0,
  Wymiar z: 3.0,
- Objetosc: 3.9,
- Wolna objetosc: 3.9,
+ Objetosc: 390.0,
+ Wolna objetosc: 390.0,
  Powod wylaczenia pokoju null,
  Czy jest w użyciu: false,
  Czy jest na wynajem: true,

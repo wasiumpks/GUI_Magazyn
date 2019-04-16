@@ -20,9 +20,6 @@ public class Person {
     private ZonedDateTime dateOfFirstRent;
     private List<Room> rooms;
 
-    public Person() {
-    }
-
     public Person(String name, String surname, String adress, String dateOfBirth, String pesel) {
         this.personID = id++;
         this.name = name;

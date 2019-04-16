@@ -8,6 +8,7 @@ package pl.maciejwasiak.magazyn;
 
 import pl.maciejwasiak.magazyn.Exceptions.TooManyItemsException;
 import pl.maciejwasiak.magazyn.Items.Item;
+import pl.maciejwasiak.magazyn.Items.SortByVolume;
 
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -25,9 +26,6 @@ public class Room implements RoomInterface {
     private List<Item> list;
     private Map<Person, Room> mapOfRoomsAndPersons;
 
-    public Room() {
-    }
-
     public Room(float xDimension, float yDimension, float zDimension) {
         this.roomId = id++;
         this.xDimension = xDimension;
@@ -36,7 +34,7 @@ public class Room implements RoomInterface {
         this.renter = null;
         this.isForRent = true;
         //calculating volume of room based on room dimensions
-        this.volume = (xDimension * yDimension * zDimension) / 100;
+        this.volume = (xDimension * yDimension * zDimension);
         this.freeVolume = volume;
         this.list = new ArrayList<>();
     }
@@ -185,6 +183,8 @@ public class Room implements RoomInterface {
     }
 
     public void move(Person p, List<Item> list) {
+        //sortowanie z uzyciem klasy generycznej
+        list.sort(new SortByVolume<>());
         float freeVolumeOfRoom = 0;
         float volumeOfItems = 0;
 
@@ -213,6 +213,7 @@ public class Room implements RoomInterface {
             }
         }
     }
+
 
     @Override
     public void remove(Item item) {
@@ -247,15 +248,18 @@ public class Room implements RoomInterface {
     }
 
     @Override
-    public void leave() {
+    public void leave(Person p, List<Item> lista) {
+        if (rentDate.plusDays(howManyDays).getDayOfMonth() < ZonedDateTime.now().getDayOfMonth()) {
+            move(p, lista);
+        }
         this.leaveDate = ZonedDateTime.now();
         this.rentDate = null;
         this.howManyDays = 0;
         this.isInUse = false;
         this.isForRent = true;
         this.renter = null;
-
     }
+
 
     @Override
     public String toString() {

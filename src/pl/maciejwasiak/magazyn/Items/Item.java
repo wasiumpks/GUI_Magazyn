@@ -80,7 +80,7 @@ public abstract class Item implements Comparable<Item> {
         this.yDimension = this.yDimension * 2;
     }
 
-    public static Comparator<Item> sortujPoPowierzchni = (o1, o2) -> (int) (o1.volumeOfItem - o2.volumeOfItem);
+    SortByVolume<Item> sortByVolume = new SortByVolume<>();
     public static Comparator<Item> sortujPoNazwie = Comparator.comparing(o -> o.name);
 
     @Override

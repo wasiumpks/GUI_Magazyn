@@ -8,6 +8,7 @@ package pl.maciejwasiak.magazyn;
 import pl.maciejwasiak.magazyn.Items.Item;
 
 import java.time.ZonedDateTime;
+import java.util.List;
 
 public interface RoomInterface {
     void insert(Item item);
@@ -16,7 +17,7 @@ public interface RoomInterface {
 
     void rent(Person person, int howManyDays, ZonedDateTime dateOfRent);
 
-    void leave();
+    void leave(Person p, List<Item> lis);
 
     void remove();
 }

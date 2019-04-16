@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+
         List<Person> listOfPersons = new ArrayList<>();
         List<Room> listOfRooms = new ArrayList<>();
         List<Item> listOfItems = new ArrayList<>();
@@ -34,7 +35,7 @@ public class Main {
         Room r10 = new Room(10, 13, 3);
 
         Person p1 = new Person("Jan", "Kowalski", "Bursztynowa 14, Warszawa", "10-10-1998", "98101001011");
-        Person p2 = new Person("Jakub", "Wozniak", "Bursztynowa 14, Warszawa", "01-11-1998", "98110101011");
+        Person p2 = new Person("Jakub", "Wozniak", "Rajmuda Klocka 69, Warszawa", "12-12-1999", "98110101011");
         Person p3 = new Person("Feliks", "Kowalski", "Bursztynowa 14, Warszawa", "10-10-1980", "80101001011");
         Person p4 = new Person("Kornelia", "Kowalska", "Bursztynowa 14, Warszawa", "03-03-1982", "92030301011");
         Person p5 = new Person("Patryk", "Grzeszczak", "Kasztanowa 53A, Warszawa", "10-03-1998", "98031001011");
@@ -46,7 +47,7 @@ public class Main {
         Bicycle b4 = new Bicycle("Kreidler Stud Carbon", 11, "Hydrauliczne", 1, false, 3f, 1.2f, 0.6f);
         Bicycle b5 = new Bicycle("Wigry 3", 1, "Zaciskowe", 0, true, 2f, 0.5f, 0.4f);
 
-        Car c1 = new Car("BMW", 3000, FuelType.PETROL, true, false, 5f, 2f, 3.5f);
+        Car c1 = new Car("BMW", 3000, FuelType.LPG, true, false, 5f, 2f, 3.5f);
         Car c2 = new Car("Jaguar", 5000, FuelType.PETROL, true, false, 6f, 2f, 4f);
         Car c3 = new Car("Citroen", 1200, FuelType.DIESEL, false, false, 3f, 1.8f, 3f);
         Car c4 = new Car("Honda", 2000, FuelType.DIESEL, true, false, 5f, 2f, 3.5f);
@@ -103,8 +104,8 @@ public class Main {
         listOfItems.add(l4);
         listOfItems.add(l5);
 
-        Person choosingPerson = new Person();
-        Room rentingRoom = new Room();
+        Person choosingPerson = null;
+        Room rentingRoom = null;
         Scanner input = new Scanner(System.in);
         System.out.println("Program do obsługi magazynu\nProjekt na przedmiot GUI\nAutor: Maciej Wasiak\n\n");
         int operationKey = -1;
@@ -122,7 +123,7 @@ public class Main {
                     System.out.println(choosingPerson.toString());
                     break;
                 case 2:
-                    System.out.println("wybierz 0 aby wyjsc\nwybierz 1 aby wynajac pomieszczenie\nwybierz 2 aby wyswietlic szczegoly pomieszczenia");
+                    System.out.println("wybierz 0 aby wyjsc\nwybierz 1 aby wynajac pomieszczenie\nwybierz 2 aby wyswietlic szczegoly pomieszczenia\nwybierz 3 aby opuscic pokoj");
                     int tmp = input.nextInt();
                     switch (tmp) {
                         case 1:
@@ -131,6 +132,13 @@ public class Main {
                             System.out.println("Na jak długo chcesz wynajac:");
                             int forHowmanyDaysRent = input.nextInt();
                             rentingRoom.rent(choosingPerson, forHowmanyDaysRent, ZonedDateTime.now());
+                            break;
+                        case 3:
+                            Person leavingPerson = null;
+                            leavingPerson = Main.choosePerson(listOfPersons);
+                            Room leavingRoom = null;
+                            leavingRoom = Main.chooseRoom(leavingPerson);
+                            leavingRoom.leave(leavingPerson, leavingRoom.getList());
                             break;
                         case 0:
                             break;
@@ -144,7 +152,7 @@ public class Main {
                                 case 0:
                                     break;
                                 case 1:
-                                    Person showWarehouseOfPerson = new Person();
+                                    Person showWarehouseOfPerson = null;
                                     showWarehouseOfPerson = Main.choosePerson(listOfPersons);
                                     System.out.println(showWarehouseOfPerson.getRooms());
                                     break;
@@ -200,7 +208,7 @@ public class Main {
         for (Person p : listOfPersons) {
             System.out.println(p.getPersonID() + ". " + p.getName() + " " + p.getSurname());
         }
-        Person choosingPerson = new Person();
+        Person choosingPerson = null;
         System.out.println("Wybierz osobe: \n");
         Scanner input = new Scanner(System.in);
         int tmp = input.nextInt();
@@ -215,10 +223,7 @@ public class Main {
 
     public static Item chooseitem(List<Item> listOfItems) {
         Item item = null;
-        for (Item i : listOfItems) {
-            System.out.println(i.getItemID() + ". " + i.getName());
-        }
-
+        listOfItems.forEach(i -> System.out.println(i.getItemID() + ". " + i.getName()));
         System.out.println("Wybierz przedmiot: \n");
         Scanner input = new Scanner(System.in);
         int tmp = input.nextInt();
@@ -234,7 +239,7 @@ public class Main {
         for (Room r : listOfRooms) {
             System.out.println(r.getRoomId() + ". Miejsce: " + r.getVolume() + " Czy wynajete: " + r.isInUse() + "\n");
         }
-        Room choosingRoom = new Room();
+        Room choosingRoom = null;
         System.out.println("Wybierz pomieszczenie: \n");
         Scanner input = new Scanner(System.in);
         int tmp = input.nextInt();
@@ -250,7 +255,7 @@ public class Main {
         for (Room r : person.getRooms()) {
             System.out.println(r.getRoomId() + ". Miejsce: " + r.getVolume() + "\n");
         }
-        Room choosingRoom = new Room();
+        Room choosingRoom = null;
         System.out.println("Wybierz pomieszczenie: \n");
         Scanner input = new Scanner(System.in);
         int tmp = input.nextInt();
