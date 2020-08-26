@@ -6,4 +6,4 @@ Aplikacja działa na kolekcjach i zapisuje stan do pliku.
 (Nie ma możliwości odczytania stanu magazynu po wylaczeniu programu)
 
 
-W przyszłości zostanie dodane połaczenie z baza danych bądź odczyt stanu z pliku.
+~~W przyszłości zostanie dodane połaczenie z baza danych bądź odczyt stanu z pliku.~~ 
